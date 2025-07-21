@@ -1,4 +1,5 @@
-import  { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,11 +8,6 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
-//   const handleNav = (section) => {
-//     // Example navigation: scroll to section or handle route
-//     alert(`Navigate to ${section}`);
-//     setIsOpen(false);
-//   };
 
   return (
     <>
@@ -37,10 +33,18 @@ const Sidebar = () => {
           <>
             <h2>Sidebar</h2>
             <ul style={{ listStyle: 'none', padding: 0 }}>
-              <li style={{ margin: '10px 0', cursor: 'pointer' }} onClick={() => handleNav('Home')}>Home</li>
-              <li style={{ margin: '10px 0', cursor: 'pointer' }} onClick={() => handleNav('About')}>About</li>
-              <li style={{ margin: '10px 0', cursor: 'pointer' }} onClick={() => handleNav('Contact')}>Contact</li>
-              <li style={{ margin: '10px 0', cursor: 'pointer' }} onClick={() => handleNav('Services')}>Services</li>
+              <li style={{ margin: '10px 0' }}>
+                <Link to="/" style={{ color: '#fff', textDecoration: 'none' }} onClick={() => setIsOpen(false)}>Home</Link>
+              </li>
+              <li style={{ margin: '10px 0' }}>
+                <Link to="/about" style={{ color: '#fff', textDecoration: 'none' }} onClick={() => setIsOpen(false)}>About</Link>
+              </li>
+              <li style={{ margin: '10px 0' }}>
+                <Link to="/contact" style={{ color: '#fff', textDecoration: 'none' }} onClick={() => setIsOpen(false)}>Contact</Link>
+              </li>
+              <li style={{ margin: '10px 0' }}>
+                <Link to="/services" style={{ color: '#fff', textDecoration: 'none' }} onClick={() => setIsOpen(false)}>Services</Link>
+              </li>
             </ul>
           </>
         )}
